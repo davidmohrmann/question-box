@@ -1,0 +1,12 @@
+<html>{% if latest_question_list %}
+<title>Stacked Questions</title>
+<h1> <strong>WELCOME TO STACKED! The primere question and answer board for all of life's mysteries!</strong></h1>
+    <ul>
+    {% for question in latest_question_list %}
+<li><a href="{% url 'stacked:detail' question.id %}">{{ question.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No stacks are available.</p>
+{% endif %}
+</html>
