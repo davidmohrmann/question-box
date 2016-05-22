@@ -1,13 +1,13 @@
 <h1>{{ question.name }}</h1>
 {% if error_message %}<p><strong>{{error_message}}</strong></p>{% endif %}
-
 <ol>
 <form action = "{% url 'stacked:vote' question.id %}" method="post">
 {% csrf_token %}
 {% for answer in question.answer_set.all %}
 	<input type="radio" name="answer" id="answer{{forloop.counter}}" value ="{{answer.id}}" />
-	<label for="answer{{forloop.counter}}">{{answer.answer}} </label><br />
+	<label for="answer{{forloop.counter}}">{{answer.answer}} </label><br/>
 {% endfor %}
 <input type="submit" value="Vote" />
 </form>
 </ol>
+<!-- WE NEED TO ADD AN ANSWER FORM HERE SO PEOPLE CAN ADD OTHER ANSWERS TO THE PAGE -->

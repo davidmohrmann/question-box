@@ -20,7 +20,7 @@ class Question(models.Model):
 class Answer(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     answer = models.TextField()
-    # votes = models.IntegerField(default=0)
+    votes = models.IntegerField(default=0)
     pub_date = models.DateTimeField(default=timezone.now())
 
     # def recently_published_answer(self):

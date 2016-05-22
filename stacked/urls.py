@@ -1,4 +1,4 @@
-from django.conf.urls import url
+from django.conf.urls import url, include
 
 from . import views
 
@@ -6,7 +6,7 @@ from . import views
 app_name = 'stacked'
 urlpatterns = [
     # GET /polls/
-    url(r'^$', views.index, name='index'),
+    url(r'^$', views.list, name='list'),
     # GET /polls/5/
     url(r'^(?P<question_id>[0-9]+)/$', views.detail, name='detail'),
     # GET /polls/5/results/

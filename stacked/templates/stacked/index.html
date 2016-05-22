@@ -1,12 +1,28 @@
-<html>{% if latest_question_list %}
-<title>Stacked Questions</title>
-<h1> <strong>WELCOME TO STACKED! The primere question and answer board for all of life's mysteries!</strong></h1>
-    <ul>
-    {% for question in latest_question_list %}
-<li><a href="{% url 'stacked:detail' question.id %}">{{ question.name }}</a></li>
+{% load staticfiles %}
+<html>
+<head>
+	<link href="http://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+	<title>Stacked Questions</title>
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="{% static 'css/stacked.css' %}">
+</head>
+
+<h1> <strong>WELCOME TO STACKED!</strong></h1>
+<body>
+			
+	{% if latest_question_list %}
+		<div>
+			<p> Question and Answer time for life's mysteries!!!!</p>
+    	<ul>
+    	{% for question in latest_question_list %}
+		<li><a href="{% url 'stacked:detail' question.id %}">{{ question.name }}</a></li>
     {% endfor %}
     </ul>
-{% else %}
-    <p>No stacks are available.</p>
+
+    <!-- WE NEED TO PUT A QUESTION BOX HERE. SO USERS CAN UPLOAD NEW QUESTIONS. -->
+    
+<!-- {% else %}
+    <p>No stacks are available.</p> -->
 {% endif %}
 </html>
