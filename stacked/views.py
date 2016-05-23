@@ -2,18 +2,17 @@ from .models import Question, Answer
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.core.urlresolvers import reverse
+from django.utils import timezone
+from .forms import QuestionForm
 
 
-# Leave the rest of the views (detail, results, vote) unchanged
-
-
-from django.shortcuts import render
-
-from .models import Question
+def question_new(request):
+	form = QuestionForm()
+	return render(request, 'stacked/question_edit.html', {'form': form})
 
 
 def list(request):
-    latest_question_list = Question.objects.order_by('-pub_date')
+    latest_question_list = Question.objects.filter(pub_date__lte=timezone.now()).order_by('-pub_date')
     context = {'latest_question_list': latest_question_list}
     return render(request, 'stacked/index.html', context)
 

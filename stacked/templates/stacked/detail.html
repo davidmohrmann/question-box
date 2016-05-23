@@ -1,3 +1,4 @@
+
 <h1>{{ question.name }}</h1>
 {% if error_message %}<p><strong>{{error_message}}</strong></p>{% endif %}
 <ol>
@@ -9,5 +10,12 @@
 {% endfor %}
 <input type="submit" value="Vote" />
 </form>
+
+<form action="{% url 'stacked:vote' question.id %}" method="post">
+{% csrf_token %}
+	<label for="your_answer"> Your Answer: </label>
+	<input id="your_answer" type="text" answer="your_answer" value="{{current_answer}}">
+	<input type="submit" value="Submit">
 </ol>
+</body>
 <!-- WE NEED TO ADD AN ANSWER FORM HERE SO PEOPLE CAN ADD OTHER ANSWERS TO THE PAGE -->

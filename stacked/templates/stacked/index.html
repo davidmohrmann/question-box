@@ -1,10 +1,10 @@
 {% load staticfiles %}
 <html>
 <head>
-	<link href="http://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
 	<title>Stacked Questions</title>
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	<link href="http://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="{% static 'css/stacked.css' %}">
 </head>
 
@@ -14,9 +14,12 @@
 	{% if latest_question_list %}
 		<div>
 			<p> Question and Answer time for life's mysteries!!!!</p>
+		</div>
     	<ul>
     	{% for question in latest_question_list %}
 		<li><a href="{% url 'stacked:detail' question.id %}">{{ question.name }}</a></li>
+		<div> Published: {{question.pub_date}}</div>
+		<p> Description: {{ question.description}}</p>
     {% endfor %}
     </ul>
 

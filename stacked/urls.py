@@ -5,6 +5,7 @@ from . import views
 
 app_name = 'stacked'
 urlpatterns = [
+	# url(r'^/question/new/$', views.question_new, name="question_new"),
     # GET /polls/
     url(r'^$', views.list, name='list'),
     # GET /polls/5/
